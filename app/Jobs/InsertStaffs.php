@@ -7,6 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class InsertStaffs implements ShouldQueue
 {
@@ -29,6 +31,15 @@ class InsertStaffs implements ShouldQueue
      */
     public function handle()
     {
-        //
+        for ($i=0; $i <= 10000; $i++)
+        {
+            $randomValue = Str::random(10);
+            $data =  [
+                'name' => $randomValue,
+                'position' => $randomValue,
+                'location' => $randomValue,
+            ];
+            DB::table('staffs')->insert($data);
+        }
     }
 }
