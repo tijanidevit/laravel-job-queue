@@ -19,8 +19,8 @@ class CustomerEmail extends Mailable
     public function build()
     {
         return $this->view('emails.users')
-            ->attach(public_path('pdf/sample.pdf'), [
-                'as' => 'sample.pdf',
+            ->attach(public_path('pdf/file.pdf'), [
+                'as' => 'file.pdf',
                 'mime' => 'application/pdf',
             ]);
     }
